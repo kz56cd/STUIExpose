@@ -10,6 +10,7 @@
 #import "CHTCollectionViewWaterfallLayout.h"
 #import "CHTCollectionViewWaterfallHeader.h"
 #import "CHTCollectionViewCell.h"
+#import "SlideImageViewController.h"
 
 
 @interface ViewController () <CHTCollectionViewDelegateWaterfallLayout, UICollectionViewDataSource>
@@ -24,23 +25,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
-    layout.headerHeight = 180.0f;
-    layout.headerInset = UIEdgeInsetsMake(10.0f, 0.0f, 10.0f, 0.0f);
-    _collectionView.collectionViewLayout = layout;
-    _collectionView.delegate             = self;
-    _collectionView.dataSource           = self;
-
-    [self.collectionView registerNib:[UINib nibWithNibName:@"CHTCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"CHTCell"];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"CHTCollectionViewWaterfallHeader" bundle:nil]
-          forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:@"CHTHeader"];
+    [self prepareCollectionView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+- (void)prepareCollectionView {
+    CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
+    layout.headerHeight                      = 180.0f;
+    layout.headerInset                       = UIEdgeInsetsMake(10.0f, 0.0f, 10.0f, 0.0f);
+    _collectionView.collectionViewLayout     = layout;
+    _collectionView.delegate                 = self;
+    _collectionView.dataSource               = self;
+    
+    // read xib
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CHTCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"CHTCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CHTCollectionViewWaterfallHeader" bundle:nil]
+          forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:@"CHTHeader"];
+}
+
+
+#pragma mark - CHTCollectionViewDelegateWaterfallLayout & UICollectionViewDataSource
+
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 5;
@@ -99,6 +107,13 @@
     }
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"tapped cell");
+    SlideImageViewController *slideImageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SlideImageViewController"];
+    [self presentViewController:slideImageViewController animated:YES completion:nil];
+}
+
 
 #pragma mark - Gesture Action
 
@@ -106,6 +121,8 @@
 - (IBAction)pinchGestureCatched:(id)sender {
     NSLog(@"pinched!!! (on the collectionView.)");
 }
+
+
 
 
 @end

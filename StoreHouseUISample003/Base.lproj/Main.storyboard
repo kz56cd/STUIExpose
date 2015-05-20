@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.94082216350000003" green="1" blue="0.69298275139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.9814003727442957" green="1" blue="0.92306049975610116" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="customSize" width="180" height="180"/>
                                     </collectionViewCell>
                                 </cells>
@@ -60,9 +60,62 @@
                     </connections>
                 </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="129" y="414"/>
+            <point key="canvasLocation" x="26" y="408"/>
+        </scene>
+        <!--Slide Image View Controller-->
+        <scene sceneID="ax9-ZB-c0f">
+            <objects>
+                <viewController storyboardIdentifier="SlideImageViewController" id="Kqc-OP-4x8" customClass="SlideImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zAu-Ea-Hpb"/>
+                        <viewControllerLayoutGuide type="bottom" id="FFc-Oy-xXe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TVH-Cf-Fsq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NM2-7D-I47">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_bill001" translatesAutoresizingMaskIntoConstraints="NO" id="x5p-QU-osN">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="x5p-QU-osN" firstAttribute="centerY" secondItem="NM2-7D-I47" secondAttribute="centerY" id="858-ry-pfM"/>
+                                    <constraint firstAttribute="bottom" secondItem="x5p-QU-osN" secondAttribute="bottom" id="Cas-Nz-iZM"/>
+                                    <constraint firstItem="x5p-QU-osN" firstAttribute="centerX" secondItem="NM2-7D-I47" secondAttribute="centerX" id="f3e-oZ-c5k"/>
+                                    <constraint firstItem="x5p-QU-osN" firstAttribute="leading" secondItem="NM2-7D-I47" secondAttribute="leading" id="h8p-eV-ey5"/>
+                                    <constraint firstItem="x5p-QU-osN" firstAttribute="top" secondItem="NM2-7D-I47" secondAttribute="top" id="iTy-5y-Cut"/>
+                                    <constraint firstAttribute="trailing" secondItem="x5p-QU-osN" secondAttribute="trailing" id="uUt-Ry-XGy"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="NM2-7D-I47" firstAttribute="leading" secondItem="TVH-Cf-Fsq" secondAttribute="leading" id="CoH-sc-CaM"/>
+                            <constraint firstItem="NM2-7D-I47" firstAttribute="bottom" secondItem="FFc-Oy-xXe" secondAttribute="top" id="Dne-p9-AuH"/>
+                            <constraint firstAttribute="trailing" secondItem="NM2-7D-I47" secondAttribute="trailing" id="KZV-eL-tA1"/>
+                            <constraint firstItem="NM2-7D-I47" firstAttribute="top" secondItem="TVH-Cf-Fsq" secondAttribute="top" id="vdh-Jj-CUs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="iw2-SJ-qjh"/>
+                    <connections>
+                        <outlet property="scrollView" destination="NM2-7D-I47" id="XNG-kR-817"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lsd-Yy-FPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="368" y="408"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="img_bill001" width="600" height="400"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
