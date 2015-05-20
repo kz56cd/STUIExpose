@@ -10,7 +10,6 @@
 #import "CHTCollectionViewWaterfallLayout.h"
 #import "CHTCollectionViewWaterfallHeader.h"
 #import "CHTCollectionViewCell.h"
-#import "ModCollectionReusableView.h"
 
 
 @interface ViewController () <CHTCollectionViewDelegateWaterfallLayout, UICollectionViewDataSource>
@@ -34,9 +33,9 @@
     _collectionView.delegate             = self;
     _collectionView.dataSource           = self;
 
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CHTCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"CHTCell"];
     [self.collectionView registerNib:[UINib nibWithNibName:@"CHTCollectionViewWaterfallHeader" bundle:nil]
           forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:@"CHTHeader"];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,7 +79,9 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    CHTCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CHTCell" forIndexPath:indexPath];
+    cell.cellImage.image = [UIImage imageNamed:@"img_bill001"];
+    
     if ((int)indexPath.row == 4 || (int)indexPath.row == 0) {
         cell.backgroundColor = [UIColor yellowColor];
     } else {
