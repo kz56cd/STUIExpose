@@ -77,20 +77,19 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NM2-7D-I47">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_bill001" translatesAutoresizingMaskIntoConstraints="NO" id="x5p-QU-osN">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtu-FC-E7m" customClass="OneSlideView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <gestureRecognizers/>
-                                    </imageView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="x5p-QU-osN" firstAttribute="centerY" secondItem="NM2-7D-I47" secondAttribute="centerY" id="858-ry-pfM"/>
-                                    <constraint firstAttribute="bottom" secondItem="x5p-QU-osN" secondAttribute="bottom" id="Cas-Nz-iZM"/>
-                                    <constraint firstItem="x5p-QU-osN" firstAttribute="centerX" secondItem="NM2-7D-I47" secondAttribute="centerX" id="f3e-oZ-c5k"/>
-                                    <constraint firstItem="x5p-QU-osN" firstAttribute="leading" secondItem="NM2-7D-I47" secondAttribute="leading" id="h8p-eV-ey5"/>
-                                    <constraint firstItem="x5p-QU-osN" firstAttribute="top" secondItem="NM2-7D-I47" secondAttribute="top" id="iTy-5y-Cut"/>
-                                    <constraint firstAttribute="trailing" secondItem="x5p-QU-osN" secondAttribute="trailing" id="uUt-Ry-XGy"/>
+                                    <constraint firstItem="rtu-FC-E7m" firstAttribute="centerY" secondItem="NM2-7D-I47" secondAttribute="centerY" id="6Y2-lM-Mvf"/>
+                                    <constraint firstItem="rtu-FC-E7m" firstAttribute="centerX" secondItem="NM2-7D-I47" secondAttribute="centerX" id="EmD-4H-l4y"/>
+                                    <constraint firstAttribute="bottom" secondItem="rtu-FC-E7m" secondAttribute="bottom" id="QBW-4r-fzj"/>
+                                    <constraint firstAttribute="trailing" secondItem="rtu-FC-E7m" secondAttribute="trailing" id="aSi-Ko-Rk0"/>
+                                    <constraint firstItem="rtu-FC-E7m" firstAttribute="leading" secondItem="NM2-7D-I47" secondAttribute="leading" id="n3R-qs-gbd"/>
+                                    <constraint firstItem="rtu-FC-E7m" firstAttribute="top" secondItem="NM2-7D-I47" secondAttribute="top" id="xaP-Yo-8O1"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -105,17 +104,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="iw2-SJ-qjh"/>
                     <connections>
+                        <outlet property="oneSlideView" destination="rtu-FC-E7m" id="OeS-68-jwB"/>
                         <outlet property="scrollView" destination="NM2-7D-I47" id="XNG-kR-817"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lsd-Yy-FPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="408"/>
+            <point key="canvasLocation" x="383" y="408"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="img_bill001" width="600" height="400"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
