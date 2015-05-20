@@ -13,5 +13,13 @@
 - (void)awakeFromNib {
 }
 
+- (IBAction)btnTapped:(id)sender {
+    // 画像のときのみdelgateとばす
+    if (_headerImageView.hidden == NO) {
+        [self.delegate headerTapped];
+    }
+}
+
+
 
 @end

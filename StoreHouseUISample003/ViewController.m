@@ -13,7 +13,7 @@
 #import "SlideImageViewController.h"
 
 
-@interface ViewController () <CHTCollectionViewDelegateWaterfallLayout, UICollectionViewDataSource>
+@interface ViewController () <CHTCollectionViewDelegateWaterfallLayout, UICollectionViewDataSource, CHTCollectionViewWaterfallHeaderDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSArray *cellList;
@@ -47,6 +47,14 @@
 }
 
 
+#pragma mark - Gesture Action
+
+
+- (IBAction)pinchGestureCatched:(id)sender {
+    NSLog(@"pinched!!! (on the collectionView.)");
+}
+
+
 #pragma mark - CHTCollectionViewDelegateWaterfallLayout & UICollectionViewDataSource
 
 
@@ -58,7 +66,8 @@
     
     if ([kind isEqualToString:CHTCollectionElementKindSectionHeader]) {
         CHTCollectionViewWaterfallHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:@"CHTHeader" forIndexPath:indexPath];
-
+        headerView.delegate = self;
+        
         if ((int)indexPath.section == 1) {
             headerView.headerImageView.hidden = YES;
             headerView.headerTextView.hidden  = NO;
@@ -109,17 +118,25 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"tapped cell");
-    SlideImageViewController *slideImageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SlideImageViewController"];
-    [self presentViewController:slideImageViewController animated:YES completion:nil];
+    NSLog(@"tapped cell : %d" , (int)indexPath.section);
+    [self moveSlideShow];
 }
 
 
-#pragma mark - Gesture Action
+#pragma mark - CHTCollectionViewWaterfallHeaderDelegate
 
 
-- (IBAction)pinchGestureCatched:(id)sender {
-    NSLog(@"pinched!!! (on the collectionView.)");
+- (void)headerTapped {
+    [self moveSlideShow];
+}
+
+
+#pragma mark - private
+
+
+- (void)moveSlideShow {
+    SlideImageViewController *slideImageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SlideImageViewController"];
+    [self presentViewController:slideImageViewController animated:YES completion:nil];
 }
 
 

@@ -54,6 +54,10 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhZ-2c-tfD" sceneMemberID="firstResponder"/>
+                <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0Jk-ho-F2k">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </collectionReusableView>
                 <pinchGestureRecognizer id="xme-WK-WqP">
                     <connections>
                         <action selector="pinchGestureCatched:" destination="AIG-v6-aRd" id="4AO-0k-QHM"/>

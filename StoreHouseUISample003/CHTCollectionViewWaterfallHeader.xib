@@ -20,8 +20,19 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="43A-Id-2Zl">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                    <gestureRecognizers/>
+                    <state key="normal">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="btnTapped:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="NFE-BE-bx3"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.88484272203947367" alpha="1" colorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="E2k-hz-4By" secondAttribute="trailing" id="28P-rF-xoJ"/>
                 <constraint firstAttribute="bottom" secondItem="E2k-hz-4By" secondAttribute="bottom" id="47e-oN-us7"/>
@@ -36,7 +47,7 @@
                 <outlet property="headerImageView" destination="E2k-hz-4By" id="K43-Ip-ke5"/>
                 <outlet property="headerTextView" destination="z9r-3s-7tc" id="jtn-5L-71L"/>
             </connections>
-            <point key="canvasLocation" x="137" y="481"/>
+            <point key="canvasLocation" x="362" y="642"/>
         </collectionReusableView>
     </objects>
     <resources>
