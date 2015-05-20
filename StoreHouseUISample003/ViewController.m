@@ -13,7 +13,13 @@
 #import "SlideImageViewController.h"
 
 
-@interface ViewController () <CHTCollectionViewDelegateWaterfallLayout, UICollectionViewDataSource, CHTCollectionViewWaterfallHeaderDelegate>
+@interface ViewController ()
+<
+CHTCollectionViewDelegateWaterfallLayout,
+UICollectionViewDataSource,
+CHTCollectionViewWaterfallHeaderDelegate,
+UIViewControllerTransitioningDelegate
+>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSArray *cellList;
@@ -51,7 +57,21 @@
 
 
 - (IBAction)pinchGestureCatched:(id)sender {
+    UIPinchGestureRecognizer *gesture = sender;
+    
     NSLog(@"pinched!!! (on the collectionView.)");
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        // スタブ
+        
+//        CGPoint initPinchPoint = [gesture locationInView:_collectionView];
+//        NSIndexPath *pinchedCellPath = [_collectionView indexPathForItemAtPoint:initPinchPoint];
+//        NSLog(@"Section: %ld, Row: %ld", (long)pinchedCellPath.section, (long)pinchedCellPath.row);
+        
+        // todo: CHTCollectionViewWaterfallLayoutに上記値を保存
+        
+    } else if (gesture.state == UIGestureRecognizerStateEnded) {
+        [self moveSlideShow];
+    }
 }
 
 
@@ -131,15 +151,30 @@
 }
 
 
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+//    return [[NRBlurryStepOutAnimatedTransitioning alloc] initWithPresenting:YES];
+    return nil;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+//    return [[NRBlurryStepOutAnimatedTransitioning alloc] initWithPresenting:NO];
+    return nil;
+}
+
+
 #pragma mark - private
 
 
 - (void)moveSlideShow {
     SlideImageViewController *slideImageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SlideImageViewController"];
+    slideImageViewController.transitioningDelegate     = self;
+    slideImageViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentViewController:slideImageViewController animated:YES completion:nil];
 }
-
-
 
 
 @end
