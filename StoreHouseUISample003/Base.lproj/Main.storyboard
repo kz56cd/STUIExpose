@@ -19,6 +19,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fLo-It-CTs">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <collectionViewLayout key="collectionViewLayout" id="Wv1-6x-f6n" customClass="CHTCollectionViewWaterfallLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="q22-W4-UBt" customClass="CHTCollectionViewCell">
@@ -36,6 +37,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="AIG-v6-aRd" id="Cah-rc-yFf"/>
                                     <outlet property="delegate" destination="AIG-v6-aRd" id="kGZ-fL-ARi"/>
+                                    <outletCollection property="gestureRecognizers" destination="xme-WK-WqP" appends="YES" id="8Th-0w-GJX"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -52,6 +54,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhZ-2c-tfD" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="xme-WK-WqP">
+                    <connections>
+                        <action selector="pinchGestureCatched:" destination="AIG-v6-aRd" id="4AO-0k-QHM"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="129" y="414"/>
         </scene>

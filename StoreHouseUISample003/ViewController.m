@@ -100,4 +100,12 @@
 }
 
 
+#pragma mark - Gesture Action
+
+
+- (IBAction)pinchGestureCatched:(id)sender {
+    NSLog(@"pinched!!! (on the collectionView.)");
+}
+
+
 @end
