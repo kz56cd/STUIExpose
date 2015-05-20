@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		3AE181E348A7E00C0418BD64 /* libPods-StoreHouseUISample003.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E7E00C71B49B00ECBE8D3FC /* libPods-StoreHouseUISample003.a */; };
-		E63B2F9C1B0B4B3C000E7609 /* CHTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E63B2F9B1B0B4B3C000E7609 /* CHTCollectionViewCell.m */; };
 		E63B2FA21B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E63B2FA01B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.m */; };
 		E63B2FA31B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E63B2FA11B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.xib */; };
+		E6B97EB01B0C382C00C24887 /* CHTCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B97EAE1B0C382C00C24887 /* CHTCollectionViewCell.m */; };
+		E6B97EB11B0C382C00C24887 /* CHTCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6B97EAF1B0C382C00C24887 /* CHTCollectionViewCell.xib */; };
+		E6B97EB41B0C49B600C24887 /* SlideImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B97EB31B0C49B600C24887 /* SlideImageViewController.m */; };
+		E6B97EBA1B0C565A00C24887 /* OneSlideView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6B97EB91B0C565A00C24887 /* OneSlideView.m */; };
 		E6EA8ABB1B0B266500C2EA74 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EA8ABA1B0B266500C2EA74 /* main.m */; };
 		E6EA8ABE1B0B266500C2EA74 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EA8ABD1B0B266500C2EA74 /* AppDelegate.m */; };
 		E6EA8AC11B0B266500C2EA74 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6EA8AC01B0B266500C2EA74 /* ViewController.m */; };
@@ -33,11 +36,16 @@
 /* Begin PBXFileReference section */
 		1E7E00C71B49B00ECBE8D3FC /* libPods-StoreHouseUISample003.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-StoreHouseUISample003.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8B58DCF9DBEBEADABDA12C /* Pods-StoreHouseUISample003.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoreHouseUISample003.release.xcconfig"; path = "Pods/Target Support Files/Pods-StoreHouseUISample003/Pods-StoreHouseUISample003.release.xcconfig"; sourceTree = "<group>"; };
-		E63B2F9A1B0B4B3C000E7609 /* CHTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTCollectionViewCell.h; sourceTree = "<group>"; };
-		E63B2F9B1B0B4B3C000E7609 /* CHTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTCollectionViewCell.m; sourceTree = "<group>"; };
 		E63B2F9F1B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTCollectionViewWaterfallHeader.h; sourceTree = "<group>"; };
 		E63B2FA01B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTCollectionViewWaterfallHeader.m; sourceTree = "<group>"; };
 		E63B2FA11B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHTCollectionViewWaterfallHeader.xib; sourceTree = "<group>"; };
+		E6B97EAD1B0C382C00C24887 /* CHTCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHTCollectionViewCell.h; sourceTree = "<group>"; };
+		E6B97EAE1B0C382C00C24887 /* CHTCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHTCollectionViewCell.m; sourceTree = "<group>"; };
+		E6B97EAF1B0C382C00C24887 /* CHTCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CHTCollectionViewCell.xib; sourceTree = "<group>"; };
+		E6B97EB21B0C49B600C24887 /* SlideImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideImageViewController.h; sourceTree = "<group>"; };
+		E6B97EB31B0C49B600C24887 /* SlideImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideImageViewController.m; sourceTree = "<group>"; };
+		E6B97EB81B0C565A00C24887 /* OneSlideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneSlideView.h; sourceTree = "<group>"; };
+		E6B97EB91B0C565A00C24887 /* OneSlideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneSlideView.m; sourceTree = "<group>"; };
 		E6EA8AB51B0B266500C2EA74 /* StoreHouseUISample003.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreHouseUISample003.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6EA8AB91B0B266500C2EA74 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6EA8ABA1B0B266500C2EA74 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,6 +121,8 @@
 		E6EA8AB71B0B266500C2EA74 /* StoreHouseUISample003 */ = {
 			isa = PBXGroup;
 			children = (
+				E6B97EB21B0C49B600C24887 /* SlideImageViewController.h */,
+				E6B97EB31B0C49B600C24887 /* SlideImageViewController.m */,
 				E6EA8ABC1B0B266500C2EA74 /* AppDelegate.h */,
 				E6EA8ABD1B0B266500C2EA74 /* AppDelegate.m */,
 				E6EA8ABF1B0B266500C2EA74 /* ViewController.h */,
@@ -121,11 +131,14 @@
 				E6EA8AC51B0B266500C2EA74 /* Images.xcassets */,
 				E6EA8AC71B0B266500C2EA74 /* LaunchScreen.xib */,
 				E6EA8AB81B0B266500C2EA74 /* Supporting Files */,
-				E63B2F9A1B0B4B3C000E7609 /* CHTCollectionViewCell.h */,
-				E63B2F9B1B0B4B3C000E7609 /* CHTCollectionViewCell.m */,
 				E63B2F9F1B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.h */,
 				E63B2FA01B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.m */,
 				E63B2FA11B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.xib */,
+				E6B97EAD1B0C382C00C24887 /* CHTCollectionViewCell.h */,
+				E6B97EAE1B0C382C00C24887 /* CHTCollectionViewCell.m */,
+				E6B97EAF1B0C382C00C24887 /* CHTCollectionViewCell.xib */,
+				E6B97EB81B0C565A00C24887 /* OneSlideView.h */,
+				E6B97EB91B0C565A00C24887 /* OneSlideView.m */,
 			);
 			path = StoreHouseUISample003;
 			sourceTree = "<group>";
@@ -239,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6EA8AC41B0B266500C2EA74 /* Main.storyboard in Resources */,
+				E6B97EB11B0C382C00C24887 /* CHTCollectionViewCell.xib in Resources */,
 				E6EA8AC91B0B266500C2EA74 /* LaunchScreen.xib in Resources */,
 				E63B2FA31B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.xib in Resources */,
 				E6EA8AC61B0B266500C2EA74 /* Images.xcassets in Resources */,
@@ -294,9 +308,11 @@
 			files = (
 				E6EA8AC11B0B266500C2EA74 /* ViewController.m in Sources */,
 				E6EA8ABE1B0B266500C2EA74 /* AppDelegate.m in Sources */,
-				E63B2F9C1B0B4B3C000E7609 /* CHTCollectionViewCell.m in Sources */,
+				E6B97EB41B0C49B600C24887 /* SlideImageViewController.m in Sources */,
 				E63B2FA21B0B543C000E7609 /* CHTCollectionViewWaterfallHeader.m in Sources */,
 				E6EA8ABB1B0B266500C2EA74 /* main.m in Sources */,
+				E6B97EBA1B0C565A00C24887 /* OneSlideView.m in Sources */,
+				E6B97EB01B0C382C00C24887 /* CHTCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

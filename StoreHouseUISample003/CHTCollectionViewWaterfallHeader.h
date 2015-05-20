@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CHTCollectionViewWaterfallHeaderDelegate <NSObject>
+
+- (void)headerTapped;
+
+@end
+
 @interface CHTCollectionViewWaterfallHeader : UICollectionReusableView
+
+@property (nonatomic, weak) id<CHTCollectionViewWaterfallHeaderDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
 @property (weak, nonatomic) IBOutlet UITextView *headerTextView;
 

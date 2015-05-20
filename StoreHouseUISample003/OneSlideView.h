@@ -1,16 +1,13 @@
 //
-//  CHTCollectionViewCell.m
+//  OneSlideView.h
 //  StoreHouseUISample003
 //
 //  Created by 業務委託スタッフ on 2015/05/20.
 //  Copyright (c) 2015年 msano. All rights reserved.
 //
 
-#import "CHTCollectionViewCell.h"
+#import <UIKit/UIKit.h>
 
-@implementation CHTCollectionViewCell
-
-- (void)awakeFromNib {
-}
-
+@interface OneSlideView : UIView
+- (void)addImage:(CGSize)size;
 @end

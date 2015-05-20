@@ -10,10 +10,16 @@
 #import "CHTCollectionViewWaterfallLayout.h"
 #import "CHTCollectionViewWaterfallHeader.h"
 #import "CHTCollectionViewCell.h"
-#import "ModCollectionReusableView.h"
+#import "SlideImageViewController.h"
 
 
-@interface ViewController () <CHTCollectionViewDelegateWaterfallLayout, UICollectionViewDataSource>
+@interface ViewController ()
+<
+CHTCollectionViewDelegateWaterfallLayout,
+UICollectionViewDataSource,
+CHTCollectionViewWaterfallHeaderDelegate,
+UIViewControllerTransitioningDelegate
+>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic) NSArray *cellList;
@@ -25,23 +31,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
-    layout.headerHeight = 180.0f;
-    layout.headerInset = UIEdgeInsetsMake(10.0f, 0.0f, 10.0f, 0.0f);
-    _collectionView.collectionViewLayout = layout;
-    _collectionView.delegate             = self;
-    _collectionView.dataSource           = self;
-
-    [self.collectionView registerNib:[UINib nibWithNibName:@"CHTCollectionViewWaterfallHeader" bundle:nil]
-          forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:@"CHTHeader"];
-    
+    [self prepareCollectionView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+- (void)prepareCollectionView {
+    CHTCollectionViewWaterfallLayout *layout = [[CHTCollectionViewWaterfallLayout alloc] init];
+    layout.headerHeight                      = 180.0f;
+    layout.headerInset                       = UIEdgeInsetsMake(10.0f, 0.0f, 10.0f, 0.0f);
+    _collectionView.collectionViewLayout     = layout;
+    _collectionView.delegate                 = self;
+    _collectionView.dataSource               = self;
+    
+    // read xib
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CHTCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"CHTCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CHTCollectionViewWaterfallHeader" bundle:nil]
+          forSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:@"CHTHeader"];
+}
+
+
+#pragma mark - Gesture Action
+
+
+- (IBAction)pinchGestureCatched:(id)sender {
+    UIPinchGestureRecognizer *gesture = sender;
+    
+    NSLog(@"pinched!!! (on the collectionView.)");
+    if (gesture.state == UIGestureRecognizerStateBegan) {
+        // スタブ
+        
+//        CGPoint initPinchPoint = [gesture locationInView:_collectionView];
+//        NSIndexPath *pinchedCellPath = [_collectionView indexPathForItemAtPoint:initPinchPoint];
+//        NSLog(@"Section: %ld, Row: %ld", (long)pinchedCellPath.section, (long)pinchedCellPath.row);
+        
+        // todo: CHTCollectionViewWaterfallLayoutに上記値を保存
+        
+    } else if (gesture.state == UIGestureRecognizerStateEnded) {
+        [self moveSlideShow];
+    }
+}
+
+
+#pragma mark - CHTCollectionViewDelegateWaterfallLayout & UICollectionViewDataSource
+
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 5;
@@ -51,7 +86,8 @@
     
     if ([kind isEqualToString:CHTCollectionElementKindSectionHeader]) {
         CHTCollectionViewWaterfallHeader *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:CHTCollectionElementKindSectionHeader withReuseIdentifier:@"CHTHeader" forIndexPath:indexPath];
-
+        headerView.delegate = self;
+        
         if ((int)indexPath.section == 1) {
             headerView.headerImageView.hidden = YES;
             headerView.headerTextView.hidden  = NO;
@@ -80,7 +116,9 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    CHTCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"CHTCell" forIndexPath:indexPath];
+    cell.cellImage.image = [UIImage imageNamed:@"img_bill001"];
+    
     if ((int)indexPath.row == 4 || (int)indexPath.row == 0) {
         cell.backgroundColor = [UIColor yellowColor];
     } else {
@@ -96,6 +134,46 @@
     } else {
         return CGSizeMake(180.0f, 180.0f);
     }
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"tapped cell : %d" , (int)indexPath.section);
+    [self moveSlideShow];
+}
+
+
+#pragma mark - CHTCollectionViewWaterfallHeaderDelegate
+
+
+- (void)headerTapped {
+    [self moveSlideShow];
+}
+
+
+#pragma mark - UIViewControllerTransitioningDelegate
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+//    return [[NRBlurryStepOutAnimatedTransitioning alloc] initWithPresenting:YES];
+    return nil;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+//    return [[NRBlurryStepOutAnimatedTransitioning alloc] initWithPresenting:NO];
+    return nil;
+}
+
+
+#pragma mark - private
+
+
+- (void)moveSlideShow {
+    SlideImageViewController *slideImageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"SlideImageViewController"];
+    slideImageViewController.transitioningDelegate     = self;
+    slideImageViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:slideImageViewController animated:YES completion:nil];
 }
 
 

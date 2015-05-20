@@ -11,3 +11,9 @@ target 'StoreHouseUISample003Tests' do
 
 end
 
+
+
+
+
+
+2015-05-20 14:37:34.634 StoreHouseUISample003[5942:98982] _scrollView.contentSize : {4125, 667}

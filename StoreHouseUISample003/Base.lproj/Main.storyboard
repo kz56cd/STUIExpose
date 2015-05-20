@@ -19,6 +19,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fLo-It-CTs">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <collectionViewLayout key="collectionViewLayout" id="Wv1-6x-f6n" customClass="CHTCollectionViewWaterfallLayout"/>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="q22-W4-UBt" customClass="CHTCollectionViewCell">
@@ -27,26 +28,16 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_bill001" translatesAutoresizingMaskIntoConstraints="NO" id="NEO-hU-64R">
-                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
-                                                </imageView>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.94082216350000003" green="1" blue="0.69298275139999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="NEO-hU-64R" secondAttribute="bottom" id="6FT-Id-czJ"/>
-                                            <constraint firstItem="NEO-hU-64R" firstAttribute="leading" secondItem="q22-W4-UBt" secondAttribute="leading" id="9Lb-tE-DOu"/>
-                                            <constraint firstItem="NEO-hU-64R" firstAttribute="top" secondItem="q22-W4-UBt" secondAttribute="top" id="CjJ-KI-D9v"/>
-                                            <constraint firstAttribute="trailing" secondItem="NEO-hU-64R" secondAttribute="trailing" id="N3F-Kw-ct8"/>
-                                        </constraints>
+                                        <color key="backgroundColor" red="0.9814003727442957" green="1" blue="0.92306049975610116" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="customSize" width="180" height="180"/>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="AIG-v6-aRd" id="Cah-rc-yFf"/>
                                     <outlet property="delegate" destination="AIG-v6-aRd" id="kGZ-fL-ARi"/>
+                                    <outletCollection property="gestureRecognizers" destination="xme-WK-WqP" appends="YES" id="8Th-0w-GJX"/>
                                 </connections>
                             </collectionView>
                         </subviews>
@@ -63,13 +54,78 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhZ-2c-tfD" sceneMemberID="firstResponder"/>
+                <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0Jk-ho-F2k">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </collectionReusableView>
+                <pinchGestureRecognizer id="xme-WK-WqP">
+                    <connections>
+                        <action selector="pinchGestureCatched:" destination="AIG-v6-aRd" id="4AO-0k-QHM"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="129" y="414"/>
+            <point key="canvasLocation" x="26" y="408"/>
+        </scene>
+        <!--Slide Image View Controller-->
+        <scene sceneID="ax9-ZB-c0f">
+            <objects>
+                <viewController storyboardIdentifier="SlideImageViewController" id="Kqc-OP-4x8" customClass="SlideImageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zAu-Ea-Hpb"/>
+                        <viewControllerLayoutGuide type="bottom" id="FFc-Oy-xXe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TVH-Cf-Fsq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NM2-7D-I47">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rtu-FC-E7m" customClass="OneSlideView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="rtu-FC-E7m" firstAttribute="centerY" secondItem="NM2-7D-I47" secondAttribute="centerY" id="6Y2-lM-Mvf"/>
+                                    <constraint firstItem="rtu-FC-E7m" firstAttribute="centerX" secondItem="NM2-7D-I47" secondAttribute="centerX" id="EmD-4H-l4y"/>
+                                    <constraint firstAttribute="bottom" secondItem="rtu-FC-E7m" secondAttribute="bottom" id="QBW-4r-fzj"/>
+                                    <constraint firstAttribute="trailing" secondItem="rtu-FC-E7m" secondAttribute="trailing" id="aSi-Ko-Rk0"/>
+                                    <constraint firstItem="rtu-FC-E7m" firstAttribute="leading" secondItem="NM2-7D-I47" secondAttribute="leading" id="n3R-qs-gbd"/>
+                                    <constraint firstItem="rtu-FC-E7m" firstAttribute="top" secondItem="NM2-7D-I47" secondAttribute="top" id="xaP-Yo-8O1"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Kcb-sZ-edG" appends="YES" id="x3C-TH-zrH"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="NM2-7D-I47" firstAttribute="leading" secondItem="TVH-Cf-Fsq" secondAttribute="leading" id="CoH-sc-CaM"/>
+                            <constraint firstItem="NM2-7D-I47" firstAttribute="bottom" secondItem="FFc-Oy-xXe" secondAttribute="top" id="Dne-p9-AuH"/>
+                            <constraint firstAttribute="trailing" secondItem="NM2-7D-I47" secondAttribute="trailing" id="KZV-eL-tA1"/>
+                            <constraint firstItem="NM2-7D-I47" firstAttribute="top" secondItem="TVH-Cf-Fsq" secondAttribute="top" id="vdh-Jj-CUs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="iw2-SJ-qjh"/>
+                    <connections>
+                        <outlet property="oneSlideView" destination="rtu-FC-E7m" id="OeS-68-jwB"/>
+                        <outlet property="scrollView" destination="NM2-7D-I47" id="XNG-kR-817"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lsd-Yy-FPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Kcb-sZ-edG">
+                    <connections>
+                        <action selector="tapGestureCatched:" destination="Kqc-OP-4x8" id="t40-Bd-V7R"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="383" y="408"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="img_bill001" width="600" height="400"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
